@@ -4,6 +4,7 @@ import { Container, ThemeProvider, CssBaseline } from "@mui/material";
 import { theme } from "./theme"; // estilos globais
 import Navbar from "./components/common/Navbar"; // componente reutilizável de navegação
 import AppRoutes from "./routes/Router"; // rotas da aplicação
+import SnackbarGlobal from "./components/common/Snackbar"; // notificações e confirmações globais
 function App() {
 return (
 // aplica o tema global ao aplicativo - Material UI
@@ -14,6 +15,8 @@ return (
 <BrowserRouter>
 {/* O AuthProvider envolve toda a aplicação, permitindo que os componentes filhos acessem o contexto de autenticação */}
 <AuthProvider>
+{/* Componente global de notificações e confirmações */}
+<SnackbarGlobal />
 {/* Navbar é o componente de navegação que contém os links para as diferentes páginas da aplicação */}
 <Navbar />
 {/* Container é um componente do Material-UI que fornece um layout responsivo e centralizado */}

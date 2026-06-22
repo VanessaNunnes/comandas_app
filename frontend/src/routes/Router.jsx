@@ -13,6 +13,11 @@ const ClienteList = lazy(() => import("../pages/ClienteList"));
 const ClienteForm = lazy(() => import("../pages/ClienteForm"));
 const ProdutoList = lazy(() => import("../pages/ProdutoList"));
 const ProdutoForm = lazy(() => import("../pages/ProdutoForm"));
+const ComandaList = lazy(() => import("../pages/ComandaList"));
+const ComandaForm = lazy(() => import("../pages/ComandaForm"));
+const ComandaConsumoForm = lazy(() => import("../pages/ComandaConsumoForm"));
+const Caixa = lazy(() => import("../pages/Caixa"));
+const Comprovante = lazy(() => import("../pages/Comprovante"));
 const LoginForm = lazy(() => import("../components/forms/LoginForm"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 // Loader para o Suspense - melhora a experiência do usuário em aplicações maiores.
@@ -36,11 +41,22 @@ return (
 <Route path="/home" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
 <Route path="/produtos" element={<PrivateRoute><ProdutoList /></PrivateRoute>} />
 <Route path="/produto" element={<PrivateRoute><ProdutoForm /></PrivateRoute>} />
+<Route path="/produto/:opr/:id" element={<PrivateRoute><ProdutoForm /></PrivateRoute>} />
 {/* Rotas para funcionário - somente se estiver logado */}
 <Route path="/funcionarios" element={<PrivateRoute><FuncionarioList /></PrivateRoute>} />
 <Route path="/funcionario" element={<PrivateRoute><FuncionarioForm /></PrivateRoute>} />
+<Route path="/funcionario/:opr/:id" element={<PrivateRoute><FuncionarioForm /></PrivateRoute>} />
 <Route path="/clientes" element={<PrivateRoute><ClienteList /></PrivateRoute>} />
 <Route path="/cliente" element={<PrivateRoute><ClienteForm /></PrivateRoute>} />
+<Route path="/cliente/:opr/:id" element={<PrivateRoute><ClienteForm /></PrivateRoute>} />
+{/* Rotas de Comanda */}
+<Route path="/comandas" element={<PrivateRoute><ComandaList /></PrivateRoute>} />
+<Route path="/comanda" element={<PrivateRoute><ComandaForm /></PrivateRoute>} />
+<Route path="/comanda/:opr/:id" element={<PrivateRoute><ComandaForm /></PrivateRoute>} />
+<Route path="/comanda/consumo/:id" element={<PrivateRoute><ComandaConsumoForm /></PrivateRoute>} />
+{/* Rotas de Caixa / Recebimento */}
+<Route path="/caixa" element={<PrivateRoute><Caixa /></PrivateRoute>} />
+<Route path="/caixa/comprovante/:id" element={<PrivateRoute><Comprovante /></PrivateRoute>} />
 {/* Rota para páginas não encontradas */}
 <Route path="*" element={<NotFound />} />
 </Routes>

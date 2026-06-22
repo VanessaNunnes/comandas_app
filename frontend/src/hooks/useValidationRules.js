@@ -1,4 +1,5 @@
 export const useValidationRules = () => ({
+required: 'Campo obrigatório',
 nome: { required: 'Nome é obrigatório' },
 cpf: { required: 'CPF é obrigatório' },
 telefone: {},
